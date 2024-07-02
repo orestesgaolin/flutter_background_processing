@@ -1,0 +1,5 @@
+analyzer:
+  errors:
+    avoid_print: ignore
+    unused_element: ignore
+include: package:flutter_lints/flutter.yaml
