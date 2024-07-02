@@ -71,3 +71,38 @@ Explain video...
 # Plugins
 
 There are some great community plugins doing almost exactly this. Whether you just need to run a quick background process or spin up a foreground service that will use Dart, you can leverage these. However, I think it's quite important to know how it all works under the hood, and in fact it's not that mysterious.
+
+# Dart or native
+
+Okay, we all know now that you can run Dart code but my hot take for today is actually the suggestion that maybe in some cases it would be better to just write this code in platform-specific language and environment?
+
+Take for example podcast playing app that needs to fetch episodes overnight. It doesn't make sense to spin up Flutter and Dart just to fetch audio files and update the local database with new file references. Instead of trying to unify this process in Dart you may spend this time implementing these processes in platform code.
+
+# What options?
+
+There are several ways to achieve it natively, we already seen the Foreground Service on Android, but with new Android releases it becomes less and less suggested option. The Android team actually discourages developers from using Foreground Services and instead try to use other background work schemes, or in most of the cases fallback to _user-initiated data transfers_ which is a new concept in Android 14. They are not affected by system quotas but at the same time there are some different rules of stopping and cancelling them. It would be enough for a separate talk at Droidcon to explain all the edge cases.
+
+https://developer.android.com/about/versions/14/changes/user-initiated-data-transfers
+
+Then we have iOS... crickets sound please
+
+# iOS bg processing
+
+On iOS the main recommended way to run any background process is BGTaskScheduler. This class can accept your requests to run a background job via callback sometime in the future. From what I heard iOS was never designed to have background processes, so in some way it's still a workaround, although officially supported.
+
+There are also some hacky ways to trigger a background code execution. For instance you may send a high priority push notification that will have some time to execute a callback.
+One other way which we utilized at Visible is something called _state restoration app relaunch_.
+
+# Code
+
+When it comes to underlying implementation the iOS code is quite straightforward, maybe a bit confusing due to syntax, but in general after you registered your task id, you can submit it to BGTaskScheduler for execution at a later time. Each task has a set of constraints e.g. it can run when the phone gets connected to the charger.
+
+And as you can imagine the scheme here is exactly the same if you want to run Dart code - you need to spin up the Flutter engine with a top-level function as entry point.
+
+# Trick
+
+The trick we used at Visible to let us have long-running background processing is called Bluetooth State Restoration App Relaunch. It essentially means that Visible is running as long as the BLE accessory is connected with the phone. It also wakes up the app when it comes back in range.
+
+Similar behavior can be achieved on Android with Companion Device API, but we haven't migrated to it just yet.
+
+# Ending

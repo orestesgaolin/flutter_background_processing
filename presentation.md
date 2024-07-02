@@ -58,6 +58,8 @@ and?
 
 ---
 
+[.build-lists: false]
+
 # Agenda
 
 - **Use cases for background processing**
@@ -70,7 +72,7 @@ and?
 
 Offline-first app:
 
-You should to be able to
+You should be able to
 synchronize it out-of-lifecycle
 
 ---
@@ -126,9 +128,11 @@ Waking up the app when in range
 
 # Agenda
 
+[.build-lists: false]
+
 - Use cases for background processing
 - **Ways to achieve it in Flutter apps**
-- Dart or native code?
+- Dart or...?
 
 ---
 
@@ -159,7 +163,7 @@ Future<Map<String, dynamic>?> isolateHttpResponseDecoder(
 ## Invoking isolates from native platform
 
 - when push notification received
-- when foreground service is running
+- when foreground service/live activity is running
 - when user taps on widget
 
 ---
@@ -208,6 +212,18 @@ Future<Map<String, dynamic>?> isolateHttpResponseDecoder(
 
 ---
 
+[.column]
+
+![inline](./img/razvan.png)
+
+[.column]
+
+![inline](./img/leancode.png)
+
+---
+
+[.build-lists: false]
+
 [.text: alignment(left)]
 
 Some production-ready plugins:
@@ -218,6 +234,8 @@ Some production-ready plugins:
 - `flutter_downloader` / `background_downloader` / `flutter_uploader`
 
 ---
+
+[.build-lists: false]
 
 # Agenda
 
@@ -315,7 +333,7 @@ Trick we use at Visible (iOS)
 
 # Final remarks
 
-- What other use cases there may be?
+- Do you see a use-case for background processing in your app?
 - Issues with bg processing and new Android policy
 - Building with Flutter ➡️ understand all platforms
 
