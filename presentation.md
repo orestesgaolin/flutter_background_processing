@@ -44,9 +44,9 @@ and?
 
 ![](img/droidcon2023.png)
 
-# My take on background processing
+# [fit] My view on background processing
 
-![inline 100%](img/logo.png)
+<!-- ![inline 100%](img/logo.png) -->
 
 ---
 
@@ -77,7 +77,7 @@ synchronize it out-of-lifecycle
 
 ---
 
-![autoplay 50%](img/android.mp4)
+![autoplay 50%](img/android-visible.mp4)
 
 ---
 
@@ -91,7 +91,7 @@ to run it outside of the main process
 
 ---
 
-![autoplay 50%](img/android-1.mp4)
+![autoplay 50%](img/android-onedrive.mp4)
 
 ---
 
@@ -184,31 +184,49 @@ Future<Map<String, dynamic>?> isolateHttpResponseDecoder(
 
 [.hide-footer]
 
-![autoplay inline](img/android_1.mp4)
+![autoplay fit](img/android_1.mp4)
 
 ---
 
 [.hide-footer]
 
-![autoplay inline](img/android_2.mp4)
+![autoplay fit](img/android_2.mp4)
 
 ---
 
 [.hide-footer]
 
-![autoplay inline](img/android_3.mp4)
+![autoplay fit](img/android_3.mp4)
 
 ---
 
 [.hide-footer]
 
-![autoplay inline](img/android_4.mp4)
+![autoplay fit](img/android_4.mp4)
 
 ---
 
 [.hide-footer]
 
-![autoplay inline](img/android_5.mp4)
+![autoplay fit](img/android_5.mp4)
+
+---
+
+[.hide-footer]
+
+![autoplay fit](img/android_6.mp4)
+
+---
+
+[.hide-footer]
+
+![autoplay fit](img/android_7.mp4)
+
+---
+
+[.hide-footer]
+
+![autoplay fit](img/android_8.mp4)
 
 ---
 
@@ -279,10 +297,6 @@ With the scale of BLE integration, SQLite database, notifications, widgets we de
 
 ---
 
-All right - Android is obvious - but what about iOS?
-
----
-
 # iOS makes background processing tricky
 
 [.text: text-scale(0.8)]
@@ -295,9 +309,9 @@ All right - Android is obvious - but what about iOS?
 ---
 
 [.code-highlight: all]
-[.code-highlight: 1-6]
-[.code-highlight: 7-10]
-[.code-highlight: 11-19]
+[.code-highlight: 1-7]
+[.code-highlight: 8-11]
+[.code-highlight: 12-19]
 
 ```swift
 // didFinishLaunchingWithOptions
@@ -305,6 +319,7 @@ BGTaskScheduler.shared.register(
   forTaskWithIdentifier: "fluttercon.hello.db_cleaning", using: nil //Info.plist
   ) { task in
     self.handleDatabaseCleaning(task: task as! BGProcessingTask)
+    // run Flutter engine if needed
 }
 
 func applicationDidEnterBackground(_ application: UIApplication) {
@@ -317,7 +332,6 @@ func scheduleDatabaseCleaningIfNeeded() {
     request.requiresExternalPower = true
 
     try BGTaskScheduler.shared.submit(request)
-    // run Flutter engine if needed
 }
 ```
 
@@ -331,11 +345,18 @@ Trick we use at Visible (iOS)
 
 ---
 
-# Final remarks
+[.text: alignment(left)]
 
-- Do you see a use-case for background processing in your app?
-- Issues with bg processing and new Android policy
+# Recap and Final Remarks
+
 - Building with Flutter ➡️ understand all platforms
+- Challenges with bg work and new Android policy
+  - Android 15 - force close stops pending intents
+- Try it yourself!
+
+---
+
+![inline 100%](./img/tweet.png)
 
 ---
 
@@ -343,9 +364,13 @@ Trick we use at Visible (iOS)
 
 [.text: alignment(left)]
 
-- Lucas Goldner: _Saving data before the app getting killed! Easy state restoration with Flutter_
+- **Norbert Kozsir:** _Compilers, Virtual Machines and Code Analysis - What makes Dart and Flutter run_
+  - Wednesday 1:40 PM / Dart Den
+- **Lucas Goldner:** _Saving data before the app getting killed! Easy state restoration with Flutter_
   - Wednesday 3:45 PM / Widget Way
-- Domen Lanišnik: _Guide to Foreground Services_
+- **Daco Harkes, Hossein Yousefi:** _The past, present, and future of native interop_
+  - Thursday 4:10 PM / Flutter Forest
+- **Domen Lanišnik:** _Guide to Foreground Services_
   - Friday 11:55 AM / Things
 - Links at [**roszkowski.dev/background**](https://roszkowski.dev/background)
 
