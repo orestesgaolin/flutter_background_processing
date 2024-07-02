@@ -42,26 +42,18 @@ class MainActivity : FlutterActivity(), ActivityAware {
                     else -> result.notImplemented()
                 }
             }
-
-//        Log.d(LOG_TAG, "Configured FlutterEngine, binding service")
-//        val serviceIntent = Intent(context, ComputationForegroundService::class.java)
-//        serviceConnection = createServiceConnection()
-//        context.bindService(serviceIntent, serviceConnection!!, Context.BIND_AUTO_CREATE)
     }
 
     override fun onDetachedFromWindow() {
         super.onDetachedFromWindow()
     }
 
-
     private var computationService: ComputationForegroundService? = null
     private var serviceConnection: ServiceConnection? = null
 
     private fun startService() {
         Log.d(LOG_TAG, "Starting computation service")
-        FlutterUtils.initialize(applicationContext)
-        FlutterUtils.createOrGetEngine(applicationContext, AppFlutterEngine.computationService)
-        // ask for notifications permissions
+        FlutterUtils.initialize(context);
 
         val serviceIntent = Intent(context, ComputationForegroundService::class.java)
         val message = "Service started";

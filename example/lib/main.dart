@@ -18,19 +18,20 @@ class _MainAppState extends State<MainApp> {
   /// Creates a [MethodChannel] with the specified name to invoke platform method.
   /// In order to communicate across platforms, the name of MethodChannel
   /// should be same on native and dart side.
+
   static MethodChannel mainMethodChannel = const MethodChannel('service.main');
 
-  static Future<void> start() async {
-    await mainMethodChannel.invokeMethod<void>('start');
+  Future<void> start() async {
+    await mainMethodChannel.invokeMethod('start');
   }
 
-  static Future<void> stop() async {
-    await mainMethodChannel.invokeMethod<void>('stop');
+  Future<void> stop() async {
+    await mainMethodChannel.invokeMethod('stop');
   }
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       home: Scaffold(
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -38,11 +39,11 @@ class _MainAppState extends State<MainApp> {
           children: [
             ElevatedButton(
               onPressed: start,
-              child: Text('Start or connect'),
+              child: const Text('Start or connect'),
             ),
             ElevatedButton(
               onPressed: stop,
-              child: Text('Stop'),
+              child: const Text('Stop'),
             ),
           ],
         ),
