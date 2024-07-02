@@ -4,7 +4,7 @@ build-lists: true
 slide-transition: fadeThroughColor(#171A42, 1.0)
 autoscale: true
 
-## Native background processing with Flutter
+## Native Background Processing with Flutter
 
 ### Dominik Roszkowski
 
@@ -19,6 +19,14 @@ autoscale: true
 [.footer: false]
 
 ![original](./img/background-about-me.jpg)
+
+---
+
+# What kind of apps do you build?
+
+![inline](./img/slido_july_24.png)
+
+👉 Slido.com with **#1924827**
 
 ---
 
@@ -46,7 +54,7 @@ and?
 
 - Use cases for background processing
 - Ways to achieve it in Flutter apps
-- Dart or native code?
+- Dart or...
 
 ---
 
@@ -54,7 +62,7 @@ and?
 
 - **Use cases for background processing**
 - Ways to achieve it in Flutter apps
-- Dart or native code?
+- Dart or...?
 
 ---
 
@@ -127,7 +135,6 @@ Waking up the app when in range
 # Isolates
 
 - they require Flutter engine to run
-- allow for Dart code execution
 - can be invoked from main engine
 - or new engine can be spun from native code
 
@@ -150,6 +157,10 @@ Future<Map<String, dynamic>?> isolateHttpResponseDecoder(
 ---
 
 ## Invoking isolates from native platform
+
+- when push notification received
+- when foreground service is running
+- when user taps on widget
 
 ---
 
@@ -302,11 +313,11 @@ Trick we use at Visible (iOS)
 
 ---
 
-# Summary
+# Final remarks
 
-- Use cases for background processing
-- Ways to achieve it in Flutter apps
-- **Dart or native code?**
+- What other use cases there may be?
+- Issues with bg processing and new Android policy
+- Building with Flutter ➡️ understand all platforms
 
 ---
 
@@ -314,25 +325,22 @@ Trick we use at Visible (iOS)
 
 [.text: alignment(left)]
 
-- Domen Lanišnik: _Guide to Foreground Services_
-  - Things/Friday 11:55 AM
 - Lucas Goldner: _Saving data before the app getting killed! Easy state restoration with Flutter_
-  - Widget Way/Wednesday 3:45 PM
+  - Wednesday 3:45 PM / Widget Way
+- Domen Lanišnik: _Guide to Foreground Services_
+  - Friday 11:55 AM / Things
 - Links at [**roszkowski.dev/background**](https://roszkowski.dev/background)
 
 ---
 
-# Native Background Processing with Flutter
-
-Thank you! 🖖
+This was "Native Background Processing with Flutter"
 
 Reference materials and slides
 [**roszkowski.dev/background**](https://roszkowski.dev/background)
 
--
+![inline](img/tally_july_2024.png)
 
-Find me online using: **@OrestesGaolin**
-or my name: **Dominik Roszkowski**
+Find me online using: **@OrestesGaolin** / **Dominik Roszkowski**
 
 <!-- - https://www.droidcon.com/2021/11/22/executing-dart-code-in-background-with-flutter/?unapproved=23281&moderation-hash=a01970f2cffdb436b12dccdacffc6867#comment-23281
 - https://www.dhiwise.com/post/work-wonders-with-flutter-workmanager-ultimate-guide
