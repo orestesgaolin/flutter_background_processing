@@ -2,4 +2,4 @@
 
 A new Flutter project that shows how to use Foreground Service with Dart.
 
-![](../img/android_8.mp4)
+https://github.com/orestesgaolin/flutter_background_processing/raw/main/img/android_8.mp4
