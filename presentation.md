@@ -1,4 +1,4 @@
-footer: Fluttercon 2024 | @OrestesGaolin | roszkowski.dev
+footer: Flutter&Friends 2024 | @OrestesGaolin | roszkowski.dev
 background-color: #171A42
 build-lists: true
 slide-transition: fadeThroughColor(#171A42, 1.0)
@@ -24,9 +24,9 @@ autoscale: true
 
 # What kind of apps do you build?
 
-![inline](./img/slido_july_24.png)
+![inline](./img/slido_aug_24.png)
 
-👉 Slido.com with **#1924827**
+👉 Slido.com with **#8390158**
 
 ---
 
@@ -121,7 +121,7 @@ to run it outside of the main process
 
 ---
 
-# Use-case #3
+<!-- # Use-case #3
 
 Refreshing app data
 
@@ -130,9 +130,9 @@ available on the backend
 
 ^Another example, that also works well with offline-first apps is refreshing the app content on backend trigger e.g. by receiving a silent push notification. This in turn triggers a short sync process to fetch the data to be shown to the user when they come back to the app.
 
----
+--- -->
 
-# Use-case #4
+# Use-case #3
 
 ![](img/tesla.jpeg)
 
@@ -349,7 +349,7 @@ Some production-ready plugins:
 
 ^There are several ways to achieve it natively, we already seen the Foreground Service on Android, but with new Android releases it becomes less and less suggested option. The Android team actually discourages developers from using Foreground Services and instead try to use other background work schemes, or in most of the cases fallback to _user-initiated data transfers_ which is a new concept in Android 14. They are not affected by system quotas but at the same time there are some different rules of stopping and cancelling them. It would be enough for a separate talk at Droidcon to explain all the edge cases.
 
----
+<!-- ---
 
 ![](./img/visible_app.jpeg)
 
@@ -357,7 +357,7 @@ Some production-ready plugins:
 
 - At Visible we decided it's the most reliable way for our main use case.
 
-- With the scale of BLE integration, SQLite database, notifications, widgets we decided to just maintain it in Kotlin/Swift.
+- With the scale of BLE integration, SQLite database, notifications, widgets we decided to just maintain it in Kotlin/Swift. -->
 
 ---
 
@@ -385,7 +385,7 @@ One other way which we utilized at Visible is something called _state restoratio
 ```swift
 // didFinishLaunchingWithOptions
 BGTaskScheduler.shared.register(
-  forTaskWithIdentifier: "fluttercon.hello.db_cleaning", using: nil //Info.plist
+  forTaskWithIdentifier: "hello.db_cleaning", using: nil //Info.plist
   ) { task in
     self.handleDatabaseCleaning(task: task as! BGProcessingTask)
     // run Flutter engine if needed
@@ -396,7 +396,7 @@ func applicationDidEnterBackground(_ application: UIApplication) {
 }
 
 func scheduleDatabaseCleaningIfNeeded() {
-    let request = BGProcessingTaskRequest(identifier: "fluttercon.hello.db_cleaning")
+    let request = BGProcessingTaskRequest(identifier: "hello.db_cleaning")
     request.requiresNetworkConnectivity = false
     request.requiresExternalPower = true
 
@@ -439,30 +439,12 @@ Android
 
 ---
 
-# Learn more
-
-[.build-lists: false]
-
-[.text: alignment(left)]
-
-- **Norbert Kozsir:** _Compilers, Virtual Machines and Code Analysis - What makes Dart and Flutter run_
-  - Wednesday 1:40 PM / Dart Den
-- **Lucas Goldner:** _Saving data before the app getting killed! Easy state restoration with Flutter_
-  - Wednesday 3:45 PM / Widget Way
-- **Daco Harkes, Hossein Yousefi:** _The past, present, and future of native interop_
-  - Thursday 4:10 PM / Flutter Forest
-- **Domen Lanišnik:** _Guide to Foreground Services_
-  - Friday 11:55 AM / Things
-- Links at [**roszkowski.dev/background**](https://roszkowski.dev/background)
-
----
-
 This was "Native Background Processing with Flutter"
 
 Reference materials and slides
 [**roszkowski.dev/background**](https://roszkowski.dev/background)
 
-![inline](img/tally_july_2024.png)
+![inline](img/tally_aug_2024.png)
 
 Find me online using: **@OrestesGaolin** / **Dominik Roszkowski**
 
