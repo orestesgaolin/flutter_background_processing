@@ -212,15 +212,15 @@ Future<Map<String, dynamic>?> isolateHttpResponseDecoder(
 
 [.text: alignment(left), size(0.8)]
 
-## Invoking isolates from native platform
+## Example: Invoking isolates from native platform
 
-1. Create _main_ method channel and register it on both sides
+<!-- 1. Create _main_ method channel and register it on both sides
 2. Start foreground service (FS) via _main_ method channel
    1. Within the FS create new Flutter engine
    2. New Flutter engine entry-point is a top-level function
    3. Create _service_ method channel for the new engine
    4. Communicate between FS and top-level function
-3. Stop the service
+3. Stop the service -->
 
 ^ In some way all of these leverage similar mechanism of invoking a new flutter engine from the Flutter Engine cache pool. For a simple one-off case that I'm going to show today you can do it in 3 major steps:
 
@@ -239,6 +239,8 @@ Future<Map<String, dynamic>?> isolateHttpResponseDecoder(
 ![autoplay fit](img/android_1.mp4)
 
 ^Let's see how it can be done with Android foreground service.
+
+^ We create instance of a method channel and register. Create start() and stop()..
 
 ---
 
